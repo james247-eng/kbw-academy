@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Masterclass | Tech Wizards Academy</title>
+  
+  <!-- Meta Tags for SEO & Ads -->
+  <meta name="description" content="Master Web Development with HTML, CSS, JavaScript & React. Build real-world projects and launch your tech career.">
+  <meta name="keywords" content="web development, HTML, CSS, JavaScript, React, online course">
+  <meta property="og:title" content="Web Development Masterclass | Tech Wizards Academy">
+  <meta property="og:description" content="Learn to build professional websites and web applications">
+  <meta property="og:image" content="YOUR_OG_IMAGE_URL_HERE">
+  <meta property="og:url" content="YOUR_PAGE_URL_HERE">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/main.css">
+  
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a1f36;
+      background: #ffffff;
+    }
+
+    /* Loading State */
+    #page-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f4f6;
+      border-top-color: #14b8a6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1f36 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="%2314b8a6" opacity="0.1"/></svg>');
+      background-size: 50px 50px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: #d1d5db;
+    }
+
+    .hero .stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #14b8a6;
+      display: block;
+    }
+
+    .stat-item .label {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* CTA Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: white;
+      box-shadow: 0 4px 20px rgba(20, 184, 166, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 30px rgba(20, 184, 166, 0.5);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #14b8a6;
+      border: 2px solid #14b8a6;
+    }
+
+    .btn-secondary:hover {
+      background: #14b8a6;
+      color: white;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #1a1f36;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-card {
+      padding: 30px;
+      background: #f9fafb;
+      border-radius: 16px;
+      border: 2px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      border-color: #14b8a6;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .benefit-card ion-icon {
+      font-size: 3rem;
+      color: #14b8a6;
+      margin-bottom: 15px;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #1a1f36;
+    }
+
+    .benefit-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-left: 4px solid #14b8a6;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #14b8a6, #0f766e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      color: #1a1f36;
+      margin-bottom: 3px;
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    /* Curriculum Section */
+    .curriculum {
+      background: #f9fafb;
+    }
+
+    #curriculum-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      background: white;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #f9fafb;
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 20px;
+      max-height: 500px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .final-cta h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #d1f5f0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.1rem;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero .stats {
+        gap: 20px;
+      }
+
+      .stat-item .number {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Indicator -->
+  <div id="page-loading">
+    <div>
+      <div class="spinner"></div>
+      <p style="margin-top:20px; color:#6b7280;">Loading course...</p>
+    </div>
+  </div>
+
+  <!-- Error Container (Hidden by default) -->
+  <div id="error-container" style="display:none;"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Master Web Development in 12 Weeks</h1>
+      <p class="subtitle">Build professional websites and launch your tech career with our comprehensive bootcamp</p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <span class="number" id="total-lessons">12</span>
+          <span class="label">Video Lessons</span>
+        </div>
+        <div class="stat-item">
+          <span class="number" id="enrolled-count">150+</span>
+          <span class="label">Students Enrolled</span>
+        </div>
+        <div class="stat-item">
+          <span class="number" id="course-level">Beginner</span>
+          <span class="label">Friendly</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary enroll-btn">
+        <ion-icon name="rocket-outline"></ion-icon>
+        Enroll Now - <span class="course-price">₦25,000</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Why Choose This Course -->
+  <section>
+    <h2>Why Choose This Course?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <ion-icon name="code-slash-outline"></ion-icon>
+        <h3>Hands-On Projects</h3>
+        <p>Build 5+ real-world projects including a portfolio website, e-commerce store, and interactive web apps.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="people-outline"></ion-icon>
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry professionals with 10+ years of experience building web applications.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="trophy-outline"></ion-icon>
+        <h3>Career Support</h3>
+        <p>Get resume reviews, interview prep, and job placement assistance from our career team.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="time-outline"></ion-icon>
+        <h3>Lifetime Access</h3>
+        <p>Access all course materials forever, including future updates and new content.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="ribbon-outline"></ion-icon>
+        <h3>Certificate</h3>
+        <p>Earn a professional certificate upon completion to showcase on your resume and LinkedIn.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <h3>Community Support</h3>
+        <p>Join our active Discord community with 1000+ students and get help anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section style="background:#f9fafb;">
+    <h2>What You'll Learn</h2>
+    <div style="max-width:800px; margin:0 auto;">
+      <div style="display:grid; gap:20px;">
+        <div style="display:flex; gap:15px; align-items:start; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <ion-icon name="checkmark-circle" style="font-size:2rem; color:#14b8a6; flex-shrink:0;"></ion-icon>
+          <div>
+            <h4 style="margin-bottom:8px;">HTML5 & CSS3 Fundamentals</h4>
+            <p style="color:#6b7280;">Master semantic HTML, responsive design, Flexbox, Grid, and modern CSS techniques.</p>
+          </div>
+        </div>
+        
+        <div style="display:flex; gap:15px; align-items:start; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <ion-icon name="checkmark-circle" style="font-size:2rem; color:#14b8a6; flex-shrink:0;"></ion-icon>
+          <div>
+            <h4 style="margin-bottom:8px;">JavaScript Programming</h4>
+            <p style="color:#6b7280;">Learn ES6+ features, DOM manipulation, async programming, and API integration.</p>
+          </div>
+        </div>
+        
+        <div style="display:flex; gap:15px; align-items:start; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <ion-icon name="checkmark-circle" style="font-size:2rem; color:#14b8a6; flex-shrink:0;"></ion-icon>
+          <div>
+            <h4 style="margin-bottom:8px;">React Development</h4>
+            <p style="color:#6b7280;">Build dynamic user interfaces with React, including hooks, state management, and routing.</p>
+          </div>
+        </div>
+        
+        <div style="display:flex; gap:15px; align-items:start; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <ion-icon name="checkmark-circle" style="font-size:2rem; color:#14b8a6; flex-shrink:0;"></ion-icon>
+          <div>
+            <h4 style="margin-bottom:8px;">Backend Basics with Node.js</h4>
+            <p style="color:#6b7280;">Understand server-side development, REST APIs, and database integration.</p>
+          </div>
+        </div>
+        
+        <div style="display:flex; gap:15px; align-items:start; padding:20px; background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <ion-icon name="checkmark-circle" style="font-size:2rem; color:#14b8a6; flex-shrink:0;"></ion-icon>
+          <div>
+            <h4 style="margin-bottom:8px;">Git & GitHub</h4>
+            <p style="color:#6b7280;">Master version control, collaboration, and deploy your projects to production.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Testimonials -->
+  <section>
+    <h2>What Our Students Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"This course changed my life! I went from knowing nothing about coding to landing a junior developer role in just 4 months. The projects were challenging but rewarding."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <h4>Adebayo Olumide</h4>
+            <p>Now Frontend Developer at PayStack</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The instructor explains complex concepts in a way that's easy to understand. The community support is amazing - I never felt stuck for too long!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div class="author-info">
+            <h4>Chiamaka Nwosu</h4>
+            <p>Junior React Developer</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Best investment I've made in my career. The hands-on projects gave me a portfolio that helped me stand out in interviews. Highly recommended!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div class="author-info">
+            <h4>Taiwo Ibrahim</h4>
+            <p>Freelance Web Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Curriculum -->
+  <section class="curriculum">
+    <h2>Course Curriculum</h2>
+    <div id="curriculum-list">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+          <span>Do I need prior coding experience?</span>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="faq-answer">
+          <p>No! This course is designed for complete beginners. We start from the basics and gradually build up your skills. All you need is a computer and willingness to learn.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+          <span>How long will I have access to the course?</span>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="faq-answer">
+          <p>You get lifetime access! Once enrolled, you can learn at your own pace and revisit the materials anytime. You'll also get free access to all future updates.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+          <span>What if I get stuck or have questions?</span>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="faq-answer">
+          <p>You'll have access to our Discord community where instructors and fellow students can help. We also have Q&A sections in each lesson.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+          <span>Will I receive a certificate?</span>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! Upon completing all lessons and projects, you'll receive a certificate of completion that you can add to your LinkedIn profile and resume.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+          <span>Can I get a refund if I'm not satisfied?</span>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="faq-answer">
+          <p>We offer a 30-day money-back guarantee. If you're not satisfied with the course within the first 30 days, contact us for a full refund.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Ready to Start Your Web Development Journey?</h2>
+    <p>Join 150+ students who are already building amazing websites</p>
+    <button class="btn btn-secondary enroll-btn">
+      <ion-icon name="school-outline"></ion-icon>
+      Enroll Now - <span class="course-price">₦25,000</span>
+    </button>
+    <p style="margin-top:20px; font-size:0.9rem;">30-Day Money-Back Guarantee • Lifetime Access • Certificate Included</p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0a0a0a; color:white; padding:40px 20px; text-align:center;">
+    <p>&copy; 2025 Tech Wizards Academy. All rights reserved.</p>
+    <div style="margin-top:15px;">
+      <a href="/terms.html" style="color:#14b8a6; margin:0 15px; text-decoration:none;">Terms</a>
+      <a href="/privacy.html" style="color:#14b8a6; margin:0 15px; text-decoration:none;">Privacy</a>
+      <a href="/contact.html" style="color:#14b8a6; margin:0 15px; text-decoration:none;">Contact</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { initCoursePage } from '/js/single-course-handler.js';
+    
+    // ⭐ REPLACE THIS WITH YOUR ACTUAL COURSE ID FROM FIRESTORE
+    const COURSE_ID = '05lofHnsmXsWz0taK0zy';
+    
+    // Initialize the course page
+    initCoursePage(COURSE_ID);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tech-wizards-academy.netlify.app/sitemap.xml

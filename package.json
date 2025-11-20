@@ -1,0 +1,12 @@
+{
+  "name": "Tech wizards academy",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "node-fetch": "2.6.7",
+    "firebase-admin": "11.11.0"
+  }
+}

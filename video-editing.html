@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Masterclass | Tech Wizards Academy</title>
+  
+  <!-- Meta Tags for SEO & Ads -->
+  <meta name="description" content="Master Web Development with HTML, CSS, JavaScript & React. Build real-world projects and launch your tech career.">
+  <meta name="keywords" content="web development, HTML, CSS, JavaScript, React, online course">
+  <meta property="og:title" content="Web Development Masterclass | Tech Wizards Academy">
+  <meta property="og:description" content="Learn to build professional websites and web applications">
+  <meta property="og:image" content="YOUR_OG_IMAGE_URL_HERE">
+  <meta property="og:url" content="YOUR_PAGE_URL_HERE">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="css/chatBot.css">
+  
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+
+</head>
+<body>
+
+  <!-- Loading Indicator -->
+  <div id="page-loading">
+    <div>
+      <div class="spinner"></div>
+      <p style="margin-top:20px; color:#6b7280;">Loading course...</p>
+    </div>
+  </div>
+
+
+    <!-- ============================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="images/TECH_WIZARD_ACADEMY_LOGO-removebg-preview.png" alt="Tech Wizards Academy">
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="about-us.html" class="nav-link">About</a></li>
+        <li><a href="all-courses.html" class="nav-link">Courses</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+      </ul>
+
+      <!-- Profile Icon -->
+      <div class="nav-right">
+        <div class="profile-icon" id="profile-icon">
+          <ion-icon name="person-outline"></ion-icon>
+          <span class="profile-text">Login</span>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+          <ion-icon name="close-outline" class="close-icon"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link">Home</a></li>
+      <li><a href="about-us.html" class="mobile-nav-link">About</a></li>
+      <li><a href="all-courses.html" class="mobile-nav-link">Courses</a></li>
+      <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+      <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+    </ul>
+  </div>
+
+  <!-- Error Container (Hidden by default) -->
+  <div id="error-container" style="display:none;"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- ⭐ This will be updated by JS, but you can set default text -->
+      <h1 id="course-title-hero">Master Web Development in 12 Weeks</h1>
+      <p class="subtitle" id="course-subtitle">Build professional websites and launch your tech career with our comprehensive bootcamp</p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <span class="number" id="total-lessons">12</span>
+          <span class="label">Video Lessons</span>
+        </div>
+        <div class="stat-item">
+          <span class="number" id="enrolled-count">150+</span>
+          <span class="label">Students Enrolled</span>
+        </div>
+        <div class="stat-item">
+          <span class="number" id="course-level">Beginner</span>
+          <span class="label">Friendly</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary enroll-btn">
+        <ion-icon name="rocket-outline"></ion-icon>
+        Enroll Now - <span class="course-price">₦</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ⭐ Course Info Section (Dynamic Data from DB) -->
+  <section>
+    <h2>Course Information</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><ion-icon name="pricetag-outline"></ion-icon> Price</h3>
+        <p class="course-price">₦25,000</p>
+      </div>
+      <div class="info-card">
+        <h3><ion-icon name="folder-outline"></ion-icon> Category</h3>
+        <p id="course-category">Programming</p>
+      </div>
+      <div class="info-card">
+        <h3><ion-icon name="person-outline"></ion-icon> Instructor</h3>
+        <p id="course-instructor">Tech Wizards Academy</p>
+      </div>
+      <div class="info-card">
+        <h3><ion-icon name="time-outline"></ion-icon> Duration</h3>
+        <p id="course-duration">12 weeks</p>
+      </div>
+    </div>
+
+    <!-- ⭐ Course Description (Dynamic from DB) -->
+    <div style="margin-top:40px; padding:30px; background:#f9fafb; border-radius:16px; border-left:4px solid #14b8a6;">
+      <h3 style="margin-bottom:15px; color:#1a1f36;"><ion-icon name="book-outline"></ion-icon> About This Course</h3>
+      <p id="course-description" style="color:#4b5563; line-height:1.8; font-size:1.1rem;">
+        This comprehensive web development bootcamp takes you from beginner to professional web developer. 
+        Learn HTML, CSS, JavaScript, React, and build real-world projects that you can add to your portfolio.
+      </p>
+    </div>
+  </section>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- Student Dashboard Screenshot Section -->
+<section class="student-dashboard w-full py-10 px-4 bg-gray-100">
+  <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-2xl font-bold mb-6">Student Dashboard Preview</h3>
+    <div class="rounded-xl overflow-hidden shadow-lg border">
+      <!-- Replace the src with your real screenshot -->
+      <img width="100%" src="images/dashboard.png" alt="Student Dashboard Screenshot" class="w-full h-auto" />
+    </div>
+  </div>
+</section>
+
+<!-- Certificate Screenshot Section -->
+<section class="certificate-preview w-full py-10 px-4 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h4 class="text-2xl font-bold mb-6">All Courses are structured to maintain learning order</h4>
+    <br>
+    <div class="rounded-xl overflow-hidden shadow-lg border">
+      <!-- Replace this with your real certificate screenshot -->
+      <img width="100%" src="images/courseViewer.png" alt="Certificate Screenshot" class="w-full h-auto" />
+    </div>
+  </div>
+</section>
+<section class="certificate-preview w-full py-10 px-4 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-6">Certificate Preview</h2>
+    <div class="rounded-xl overflow-hidden shadow-lg border">
+      <!-- Replace this with your real certificate screenshot -->
+      <img width="100%" src="images/certificate.png" alt="Certificate Screenshot" class="w-full h-auto" />
+    </div>
+  </div>
+</section>
+
+  
+  
+
+
+
+
+
+
+  
+  
+  <!-- Why Choose This Course (Your Custom Content) -->
+  <section>
+    <h2>Why Choose This Course?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <ion-icon name="code-slash-outline"></ion-icon>
+        <h3>Hands-On Projects</h3>
+        <p>Build 5+ real-world projects including a portfolio website, e-commerce store, and interactive web apps.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="people-outline"></ion-icon>
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry professionals with 10+ years of experience building web applications.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="trophy-outline"></ion-icon>
+        <h3>Career Support</h3>
+        <p>Get resume reviews, interview prep, and job placement assistance from our career team.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="time-outline"></ion-icon>
+        <h3>Lifetime Access</h3>
+        <p>Access all course materials forever, including future updates and new content.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="ribbon-outline"></ion-icon>
+        <h3>Certificate</h3>
+        <p>Earn a professional certificate upon completion to showcase on your resume and LinkedIn.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <h3>Community Support</h3>
+        <p>Join our active Discord community with 1000+ students and get help anytime.</p>
+      </div>
+    </div>
+    <br>
+    <h5>Above all, Tech Wizards Academy has trained over 1000+ students to become professional web designers and developers. Maintaining proper student support both during and after the course, Making it the ideal choice for your learning journey IF YOU WANT TO GROW IN A COMMUNITY OF EXPERTS.</h5>
+  </section>
+
+  <!-- Student Testimonials (Your Custom Content) -->
+  <section>
+    <h2>What Our Students Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"This course changed my life! I went from knowing nothing about coding to landing a junior developer role in just 4 months."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <h4>Adebayo Olumide</h4>
+            <p>Now Frontend Developer at Easblinktech NG</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The instructor explains complex concepts in a way that's easy to understand. The community support is amazing!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div class="author-info">
+            <h4>Chiamaka Nwosu</h4>
+            <p>Junior React Developer</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Best investment I've made in my career. The hands-on projects gave me a portfolio that helped me stand out in interviews."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div class="author-info">
+            <h4>Taiwo Ibrahim</h4>
+            <p>Freelance Web Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⭐ Course Curriculum (Dynamic from DB) -->
+  <section class="curriculum">
+    <h2>Course Curriculum</h2>
+    <div id="curriculum-list">
+      <!-- Will be populated by JavaScript from Firestore -->
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Ready to Start Your Web Design Journey?</h2>
+    <p>Join 1000+ students who are already building amazing websites, earning above ₦1,000,000 monthly from the comfort of their home</p>
+    <button class="btn btn-secondary enroll-btn" style="color: white;">
+      <ion-icon name="school-outline"></ion-icon>
+      Enroll Now - <span class="course-price">₦25,000</span>
+    </button>
+    <p style="margin-top:20px; font-size:0.9rem;">30-Day Money-Back Guarantee • Lifetime Access • Certificate Included</p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0a0a0a; color:white; padding:40px 20px; text-align:center;">
+    <p>&copy; 2025 Tech Wizards Academy. All rights reserved.</p>
+    <div style="margin-top:15px;">
+      <h4>Do you need any help?</h4>
+      <!--whatsap link to my phone number +2347058091721-->
+      <a href="https://wa.me/2347058091721" target="_blank" style="color:#25D366; text-decoration:none; font-weight:bold;">
+        <ion-icon name="logo-whatsapp"></ion-icon> Chat with us on WhatsApp
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+
+  <script type="module" src="js/profile-handler.js"></script>
+  <script type="module">
+    import { initCoursePage } from '/js/single-course-handler.js';
+    
+    //  ACTUAL COURSE ID FROM FIRESTORE
+    const COURSE_ID = '6cRzcbuuleBVYuLzNI64';
+    
+    // Initialize the course page
+    initCoursePage(COURSE_ID);
+  </script>
+
+
+</body>
+</html>

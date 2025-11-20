@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/about-us.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/all-courses.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/blog.html</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/sign-in.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://tech-wizards-academy.netlify.app/sign-up.html</loc>
+    <priority>0.50</priority>
+  </url>
+</urlset>

@@ -1,0 +1,15 @@
+<!-- Elements to add to <head> before closing </head> -->
+<link rel="stylesheet" href="css/install.css">
+<script src="js/pwa.js" defer></script>
+<script src="js/pwa-install-ui.js" defer></script>
+
+<!-- Elements to add right after <body> -->
+<div class="pwa-install-prompt" id="pwaInstallPrompt" style="display: none;">
+    <img src="/favicon/android-chrome-192x192.png" alt="Tech Wizards Academy" style="width: 32px; height: 32px;">
+    <div style="flex-grow: 1;">
+        <p style="margin: 0 0 4px 0; font-weight: 600;">Install Tech Wizards Academy</p>
+        <p style="margin: 0; font-size: 14px; opacity: 0.8;">Get quick access to courses on your device</p>
+    </div>
+    <button onclick="installPWA()" style="background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Install</button>
+    <button onclick="closePWAPrompt()" class="close-install-btn">&times;</button>
+</div>

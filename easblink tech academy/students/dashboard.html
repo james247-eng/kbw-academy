@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Tech Wizards Academy</title>
+  <link rel="stylesheet" href="./css/student-dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+   <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!--favicon starts from here-->
+
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1605167704195649');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1605167704195649&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <link rel="stylesheet" href="css/install.css">`n  <script src="js/pwa.js" defer></script>`n  <script src="js/pwa-install-ui.js" defer></script>`n</head>
+<body>`n  <div class="pwa-install-prompt" id="pwaInstallPrompt" style="display: none;">`n    <img src="/favicon/android-chrome-192x192.png" alt="Tech Wizards Academy" style="width: 32px; height: 32px;">`n    <div style="flex-grow: 1;">`n      <p style="margin: 0 0 4px 0; font-weight: 600;">Install Tech Wizards Academy</p>`n      <p style="margin: 0; font-size: 14px; opacity: 0.8;">Get quick access to courses on your device</p>`n    </div>`n    <button onclick="installPWA()" style="background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Install</button>`n    <button onclick="closePWAPrompt()" class="close-install-btn">&times;</button>`n  </div>`n
+  <div class="container">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div class="welcome-section">
+        <h3 id="welcome-text">Welcome back! </h3>
+        <p id="welcome-subtitle">Continue your learning journey</p>
+      </div>
+      <div class="header-actions">
+        <a href="/all-courses.html" class="btn btn-primary"><span><ion-icon name="file-tray-stacked-outline"></ion-icon></span> Browse Courses</a>
+        <a href="/index.html" class="btn btn-secondary"><span><ion-icon name="home-outline"></ion-icon></span> Home</a>
+        <button id="logout-btn" class="btn btn-danger"><span><ion-icon name="log-out-outline"></ion-icon></span> Logout</button>
+        <div class="help-icon">
+          <!-- <ion-icon name="whatsapp-outline"></ion-icon> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #dbeafe; color: #1e40af;"><ion-icon name="book-outline"></ion-icon></div>
+        <div class="stat-info">
+          <h3 id="total-courses">0</h3>
+          <p>Total Courses</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #d1fae5; color: #065f46;"><ion-icon name="checkmark-done-outline"></ion-icon></div>
+        <div class="stat-info">
+          <h3 id="completed-courses">0</h3>
+          <p>Completed</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #fef3c7; color: #92400e;">⏳</div>
+        <div class="stat-info">
+          <h3 id="in-progress-courses">0</h3>
+          <p>In Progress</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="courses-section">
+      <div class="section-header">
+        <h2>My Courses</h2>
+      </div>
+      <div id="courses-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Loading your courses...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Player Modal
+  <div class="modal" id="player-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-course-title">Course Video</h3>
+        <button class="close-btn" id="close-player">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="video-container">
+          <div id="player"></div>
+        </div>
+        <div class="player-controls">
+          <div class="progress-info">
+            <strong>Progress:</strong> <span id="current-progress">0%</span> completed
+            <div style="margin-top: 8px; font-size: 13px; color: #6b7280;">
+              Last watched: <span id="last-watched">Never</span>
+            </div>
+          </div>
+          <div class="control-buttons">
+            <button class="btn btn-secondary" id="save-progress-btn">Save Progress</button>
+            <button class="btn btn-primary" id="mark-complete-btn" style="display: none;">Mark Complete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   Certificate Modal 
+  <div class="modal" id="certificate-modal">
+    <div class="certificate-container">
+      <h2>🎉 Congratulations!</h2>
+      <p>You've completed this course!</p>
+      <canvas id="certificate-canvas" width="800" height="600"></canvas>
+      <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+        <button class="btn btn-primary" id="download-certificate">Download Certificate</button>
+        <button class="btn btn-secondary" id="close-certificate">Close</button>
+      </div>
+    </div>
+  </div>
+
+  YouTube IFrame API -->
+  <!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+  <!-- Student Dashboard Script -->
+  <script type="module" src="js/dashboard.js"></script>
+   
+</body>
+</html>
