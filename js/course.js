@@ -15,7 +15,7 @@ function getCoursePageUrl(courseId) {
   // Just copy/paste the course IDs from each page and add the URL
   
   const coursePages = {
-    '05lofHnsmXsWz0taK0zy': '/web-development-course.html',
+    '05lofHnsmXsWz0taK0zy': '/web-development.html',
     'llF8FvdVveEJ8JrW0rVt': '/graphic-design.html',  // ⭐ Add your pages like this
     '5iWDtOBknD5cLGBNUIMQ': '/ui-ux.html',  // ⭐ Add your pages like this
     'GMa96T2TNSwPK5eU0mAG': '/meta-ads.html',  // ⭐ Add your pages like this
