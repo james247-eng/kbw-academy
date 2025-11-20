@@ -81,7 +81,7 @@ exports.handler = async function (event) {
     }
 
     // ⭐ FIX: Add callback_url to redirect users after payment
-    const callbackUrl = `${event.headers.origin || 'https://tech-wizards-academy.netlify.app'}/payment-success.html`;
+    const callbackUrl = `${event.headers.origin || 'https://tech-wizzards-academy.netlify.app'}/payment-success.html`;
 
     // Initialize Paystack transaction
     const initRes = await fetch('https://api.paystack.co/transaction/initialize', {
