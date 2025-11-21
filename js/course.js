@@ -17,7 +17,7 @@ function getCoursePageUrl(courseId) {
   const coursePages = {
     '05lofHnsmXsWz0taK0zy': '/web-development.html',
     'llF8FvdVveEJ8JrW0rVt': '/graphic-design.html',  // ⭐ Add your pages like this
-    '5iWDtOBknD5cLGBNUIMQ': '/ui-ux.html',  // ⭐ Add your pages like this
+   // '5iWDtOBknD5cLGBNUIMQ': '/ui-ux.html',  // ⭐ Add your pages like this
     'GMa96T2TNSwPK5eU0mAG': '/meta-ads.html',  // ⭐ Add your pages like this
     // 'ANOTHER_COURSE_ID': '/another-course.html',
     // 'YET_ANOTHER_ID': '/digital-marketing-course.html',

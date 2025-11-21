@@ -24,6 +24,162 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
+
+
+
+
+
+
+<style>
+  /* WHY LEARN WITH US SECTION */
+.why-learn {
+  padding: 60px 20px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.section-badge {
+  display: inline-block;
+  background: teal;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: black;
+}
+
+.section-description {
+  color: #444;
+  margin-top: 10px;
+}
+
+/* GRID */
+.why-grid {
+  display: grid;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.why-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Placeholder Image Box (for screenshots) */
+.why-img {
+  width: 100%;
+  height: 160px;
+  background: #d9f2f2;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* HEADINGS */
+.why-card h3 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  color: #555;
+  font-size: 15px;
+}
+
+/* CERTIFICATE SECTION */
+.certificate-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.certificate-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
+
+.certificate-section p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 35px;
+}
+
+.certificate-grid {
+  display: grid;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.certificate-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid #e5e5e5;
+  transition: 0.3s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
+
+.cert-img {
+  width: 100%;
+  height: 160px;
+  background: #ccecec;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE GRID */
+@media (min-width: 600px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .certificate-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+</style>
+
+
+
+
+
+
+
+
 </head>
 <body>
 
@@ -202,6 +358,99 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
+
+<!-- WHY LEARN WITH US SECTION -->
+<section class="why-learn section-container">
+  <div class="section-header">
+    <div class="section-badge">Why Learn With Us</div>
+    <h2 class="section-title">Your Growth Is Guaranteed With Us</h2>
+    <p class="section-description">
+      We provide everything you need to learn effectively, stay motivated, and build a profitable tech career.
+    </p>
+  </div>
+
+  <div class="why-grid">
+
+    <!-- Feature Card 1 -->
+    <div class="why-card">
+      <div class="why-img"></div>
+      <h3>Learn At Your Pace</h3>
+      <p>Study anytime, anywhere. Our courses are flexible and designed to fit your lifestyle.</p>
+    </div>
+
+    <!-- Feature Card 2 -->
+    <div class="why-card">
+      <div class="why-img"></div>
+      <h3>Access to Industry Mentors</h3>
+      <p>Get direct answers from mentors during and after the course to keep you progressing.</p>
+    </div>
+
+    <!-- Feature Card 3 -->
+    <div class="why-card">
+      <div class="why-img"></div>
+      <h3>Active Tech Community</h3>
+      <p>Join a community of learners for collaboration, networking, and growth.</p>
+    </div>
+
+    <!-- Feature Card 4 -->
+    <div class="why-card">
+      <div class="why-img"></div>
+      <h3>Lifetime Resources</h3>
+      <p>Get lifetime access to course materials, updates, and downloadable resources.</p>
+    </div>
+
+    <!-- Feature Card 5 -->
+    <div class="why-card">
+      <div class="why-img"></div>
+      <h3>Job Sourcing Support</h3>
+      <p>We guide you with job sourcing, portfolio review, and opportunities to land real work.</p>
+    </div>
+
+  </div>
+
+  <!-- Certificates Section -->
+  <div class="certificate-section">
+    <h2>Globally Recognized Certificates</h2>
+    <p>Earn certificates backed with job-ready guarantees once you complete your course.</p>
+
+    <div class="certificate-grid">
+      <div class="certificate-card">
+        <!-- <div class="cert-img"></div> -->
+        <img  src="images/certificate.png" alt="" class="cert-img">
+        <img src="" alt="">
+        <h4>Professional Course Certificate</h4>
+        <p>Proof of completion for industry-standard training.</p>
+      </div>
+
+      <div class="certificate-card">
+        <div class="cert-img"></div>
+        <h4>Skill Mastery Badge</h4>
+        <p>Earn badges as you complete modules and major milestones.</p>
+      </div>
+
+      <div class="certificate-card">
+        <div class="cert-img"></div>
+        <h4>Job-Ready Guarantee</h4>
+        <p>If you follow our system and practice, you will be job-ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
 
   <!-- Student Testimonials -->
   <section>

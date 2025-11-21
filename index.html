@@ -7,6 +7,98 @@
     <title>Tech Wizards Academy - Master Digital Skills</title>
 
     <!-- ============================================ -->
+     <!---styles for the course links-->
+     <style>
+      /* Section Container */
+.course-links {
+  padding: 4rem 1rem;
+  background: #ffffff;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.section-badge {
+  display: inline-block;
+  background: teal;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Course Grid */
+.course-links-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Course Cards */
+.course-link-card {
+  display: block;
+  padding: 2rem;
+  background: #f8fafa;
+  border: 2px solid teal;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s ease;
+}
+
+.course-link-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: teal;
+}
+
+.course-link-card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Hover Effects */
+.course-link-card:hover {
+  background: teal;
+  color: white;
+  transform: translateY(-6px);
+}
+
+.course-link-card:hover h3,
+.course-link-card:hover p {
+  color: white;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .course-link-card {
+    padding: 1.5rem;
+  }
+}
+
+     </style>
     <meta
       name="description"
       content="Master web development, mobile apps, data analysis, and digital marketing with Tech Wizards Academy. Affordable online tech courses across Nigeria with certificates. Start your tech career today!"
@@ -272,6 +364,10 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
   </head>
+
+
+
+
   <body>
     <!-- ============================================ -->
     <!-- PRELOADER -->
@@ -570,6 +666,40 @@
         </div>
       </div>
     </section>
+
+
+    <section class="course-links section-container">
+        <div class="section-header">
+          <div class="section-badge">Popular Courses</div>
+          <h2 class="section-title">Explore Our Top Tech Courses</h2>
+          <p class="section-description">
+            Start your tech journey with our most sought-after courses
+          </p>
+        </div>
+
+        <div class="course-links-grid">
+          <a href="web-development.html" class="course-link-card">
+            <h3>Web Development</h3>
+            <p>Build dynamic websites and applications from scratch.</p>
+          </a>
+
+          <a href="graphic-design.html" class="course-link-card">
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals and branding materials.</p>
+          </a>
+
+          <a href="data-analysis.html" class="course-link-card">
+            <h3>Data Analysis</h3>
+            <p>Turn data into actionable insights.</p>
+          </a>
+
+          <a href="digital-marketing.html" class="course-link-card">
+            <h3>Digital Marketing</h3>
+            <p>Master online marketing strategies to grow businesses.</p>
+          </a>
+        </div>
+    </section>
+
 
     <!-- ============================================ -->
     <!-- HOW IT WORKS -->
