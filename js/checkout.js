@@ -2,7 +2,7 @@
 // ====================================================================
 // CHECKOUT - Handles Course Purchases with Loading & Toasts
 // ====================================================================
-
+/*
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js';
 import { showToast, showLoading } from './toast-notification.js';
@@ -102,3 +102,83 @@ window.addEventListener('load', async () => {
   }
 });
 
+
+
+
+*/
+
+
+
+
+// ====================================================================
+// CHECKOUT - Handles Course Purchases (FIXED)
+// ====================================================================
+import { auth } from '../firebase-config.js'; // ⭐ Use existing auth
+import { showToast, showLoading } from './toast-notification.js';
+
+// ====================================================================
+// START PURCHASE FUNCTION
+// ====================================================================
+window.startPurchase = async function (courseId) {
+  console.log('💳 Starting purchase for course:', courseId);
+  
+  const dismissLoading = showLoading('Preparing checkout...');
+  
+  try {
+    // Check if user is logged in
+    const user = auth.currentUser;
+    
+    if (!user) {
+      dismissLoading();
+      showToast('Please login to purchase courses', 'warning');
+      
+      // ⭐ Save to localStorage instead of URL
+      localStorage.setItem('pendingEnrollment', JSON.stringify({
+        courseId: courseId,
+        timestamp: Date.now()
+      }));
+      
+      setTimeout(() => {
+        window.location.href = '/sign-in.html';
+      }, 1500);
+      return;
+    }
+
+    // Get user's ID token
+    const idToken = await user.getIdToken();
+    
+    console.log('🔑 Got ID token, calling Netlify function...');
+    
+    // ⭐ Call Netlify function
+    const res = await fetch('/.netlify/functions/create-paystack-transaction', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${idToken}`
+      },
+      body: JSON.stringify({ courseId })
+    });
+
+    if (!res.ok) {
+      const json = await res.json();
+      throw new Error(json.error || `Server error: ${res.status}`);
+    }
+
+    const json = await res.json();
+    
+    dismissLoading();
+    showToast('Redirecting to payment...', 'success');
+    
+    // Redirect to Paystack
+    setTimeout(() => {
+      window.location.href = json.authorization_url;
+    }, 1000);
+
+  } catch (err) {
+    dismissLoading();
+    console.error('❌ Purchase error:', err);
+    showToast('Error starting purchase: ' + err.message, 'error');
+  }
+};
+
+console.log('✅ Checkout.js loaded');
