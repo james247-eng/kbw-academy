@@ -9,7 +9,7 @@
  * @param {string} type - 'success', 'error', 'info', or 'warning'
  * @param {number} duration - How long to show (milliseconds), default 4000
  */
-export function showToast(message, type = 'info', duration = 4000) {
+export function showToast(message, type = 'info', duration = 8000) {
   // Create toast container if it doesn't exist
   let container = document.getElementById('toast-container');
   if (!container) {

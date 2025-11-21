@@ -1501,6 +1501,6 @@ document.addEventListener('visibilitychange', () => {
     loadUserCourses();
   }
 });
-
+ 
 console.log('✅ Student Dashboard initialized - v4 (Direct Checkout - No Extra Redirects)');s
 
