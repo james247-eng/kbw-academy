@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Development Masterclass | Tech Wizards Academy</title>
+  <title>ecommerce web design | Tech Wizards Academy</title>
   
   <!-- Meta Tags for SEO & Ads -->
   <meta name="description" content="Master Web Development with HTML, CSS, JavaScript & React. Build real-world projects and launch your tech career.">
@@ -27,6 +27,75 @@
   
 <style>
   /* WHY LEARN WITH US SECTION */
+  /* COURSE INFORMATION SECTION */
+.course-info-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Grid Layout */
+.info-grid {
+  display: grid;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Cards */
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+.info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: teal;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.info-card h3 ion-icon {
+  font-size: 20px;
+  color: teal;
+}
+
+.info-card p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Highlighted price */
+.course-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: black;
+}
+
+/* RESPONSIVE GRID */
+@media (min-width: 600px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .info-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .why-learn {
   padding: 60px 20px;
 }
@@ -194,11 +263,11 @@
 
       <!-- Navigation Links -->
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#" class="nav-link">Home</a></li>
         <li><a href="about-us.html" class="nav-link">About</a></li>
         <li><a href="all-courses.html" class="nav-link">Courses</a></li>
-        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-        <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+        <li><a href="#" class="nav-link">Testimonials</a></li>
+        <li><a href="#" class="mobile-nav-link">Blog</a></li>
       </ul>
 
       <!-- Profile Icon -->
@@ -235,20 +304,20 @@
   <section class="hero">
     <div class="hero-content">
       <!-- ⭐ This will be updated by JS, but you can set default text -->
-      <h1 id="course-title-hero">Master Web Development in 12 Weeks</h1>
-      <p class="subtitle" id="course-subtitle">Build professional websites and launch your tech career with our comprehensive bootcamp</p>
+      <h1 id="course-title-hero"></h1>
+      <p class="subtitle" id="course-subtitle"></p>
       
       <div class="stats">
         <div class="stat-item">
-          <span class="number" id="total-lessons">12</span>
+          <span class="number" id="total-lessons"></span>
           <span class="label">Video Lessons</span>
         </div>
         <div class="stat-item">
-          <span class="number" id="enrolled-count">150+</span>
+          <span class="number" id="enrolled-count"></span>
           <span class="label">Students Enrolled</span>
         </div>
         <div class="stat-item">
-          <span class="number" id="course-level">Beginner</span>
+          <span class="number" id="course-level"></span>
           <span class="label">Friendly</span>
         </div>
       </div>
@@ -270,15 +339,15 @@
       </div>
       <div class="info-card">
         <h3><ion-icon name="folder-outline"></ion-icon> Category</h3>
-        <p id="course-category">Programming</p>
+        <p id="course-category"></p>
       </div>
       <div class="info-card">
         <h3><ion-icon name="person-outline"></ion-icon> Instructor</h3>
-        <p id="course-instructor">Tech Wizards Academy</p>
+        <p id="course-instructor"></p>
       </div>
       <div class="info-card">
         <h3><ion-icon name="time-outline"></ion-icon> Duration</h3>
-        <p id="course-duration">12 weeks</p>
+        <p id="course-duration">  </p>
       </div>
     </div>
 
@@ -491,7 +560,7 @@
   <section class="final-cta">
     <h2>Ready to Start Your Web Design Journey?</h2>
     <p>Join 1000+ students who are already building amazing websites, earning above ₦1,000,000 monthly from the comfort of their home</p>
-    <button class="btn btn-secondary enroll-btn" style="color: white;">
+    <button class="btn btn-secondary enroll-btn">
       <ion-icon name="school-outline"></ion-icon>
       Enroll Now - <span class="course-price">₦25,000</span>
     </button>
