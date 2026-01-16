@@ -48,8 +48,8 @@
         document.getElementById("loading").style.display = "block";
 
         try {
-          // Wait a bit for webhook to process (3 seconds)
-          await new Promise((resolve) => setTimeout(resolve, 3000));
+          // Wait a bit for webhook to process (10 seconds)
+          await new Promise((resolve) => setTimeout(resolve, 10000));
 
           // Verify purchase in Firestore
           if (actualRef) {
